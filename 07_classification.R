@@ -2,6 +2,7 @@
 
 library(terra)
 library(imageRy)
+library(ggplot2)
 
 setwd("tilde") -> in caso abbia salvato la foto nei download
 
@@ -79,7 +80,24 @@ tabout <- data.frame(
   perc2006=c(45,55)
 )  
 
+aes -> definiscono le estetiche del grafico
+p1 <- ggplot(tabout, aes(x=class, y=perc1992, color=class)) +  # structure
+ geom_bar(stat="identity", fill="white") # bar plot
 
+fill: colorazione interna delle barre
+
+p1 <- ggplot(tabout, aes(x=class, y=perc1992, color=class)) +  # structure
+ geom_bar(stat="identity", fill="white") +  # bar plot 
+ ylim(c(0,100)) + #limits
+ theme(legend.position="none") + # removing legend
+ theme_dark()
+p2 <- ggplot(tabout, aes(x=class, y=perc2006, color=class)) + 
+      geom_bar(stat="identity", fill="white") +
+ ylim(c(0,100)) + # limits
+ theme(legend.position="none") + # removing legend
+ theme_dark()
+
+p1 + p2
 
 
 
