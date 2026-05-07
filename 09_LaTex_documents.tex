@@ -1,0 +1,153 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{hyperref}
+\usepackage{lineno}
+\usepackage{comment}
+\usepackage{natbib}
+\linenumbers
+
+\title{Il mio primo documento in LaTex}
+\author{Giorgia Fabbri}
+%\date{}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\listoffigures
+
+\section{Introduzione} \label{seq:intro}
+Psychic spies from China try to steal your mind's elation
+And little girls from Sweden dream of silver screen quotation
+And if you want these kind of dreams it's Californication
+It's the edge of the world and all of Western civilization
+The sun may rise in the East, at least it settled in a final location
+It's understood that Hollywood sells Californication
+Pay your surgeon very well to break the spell of aging
+Celebrity skin, is this your chin, or is that war you're waging?
+First born unicorn
+Hardcore soft porn
+
+\noindent (toglie lo spazio iniziale) Psychic spies from China try to steal your mind's elation
+And little girls from Sweden dream of silver screen quotation
+And if you want these kind of dreams it's Californication
+It's the edge of the world and all of Western civilization
+The sun may rise in the East, at least it settled in a final location
+It's understood that Hollywood sells Californication
+Pay your surgeon very well to break the spell of aging
+Celebrity skin, is this your chin, or is that war you're waging?
+First born unicorn
+Hardcore soft porn
+
+\smallskip (piccolo pazio tra un testo e l'altro)
+Psychic spies from China try to steal your mind's elation
+And little girls from Sweden dream of silver screen quotation
+And if you want these kind of dreams it's Californication
+It's the edge of the world and all of Western civilization
+The sun may rise in the East, at least it settled in a final location
+It's understood that Hollywood sells Californication
+Pay your surgeon very well to break the spell of aging
+Celebrity skin, is this your chin, or is that war you're waging?
+First born unicorn
+Hardcore soft porn
+
+\bigskip
+Psychic spies from China try to steal your mind's elation
+And little girls from Sweden dream of silver screen quotation
+And if you want these kind of dreams it's Californication
+It's the edge of the world and all of Western civilization
+The sun may rise in the East, at least it settled in a final location
+It's understood that Hollywood sells Californication
+Pay your surgeon very well to break the spell of aging
+Celebrity skin, is this your chin, or is that war you're waging?
+First born unicorn
+Hardcore soft porn
+
+%\begin{comment}
+ Ma s'io avessi previsto tutto questo, dati causa e pretesto, le attuali conclusioni
+Credete che per questi quattro soldi, questa gloria da stronzi, avrei scritto canzoni
+Va beh, lo ammetto che mi son sbagliato e accetto il "crucifige" e così sia
+Chiedo tempo, son della razza mia, per quanto grande sia, il primo che ha studiato
+Mio padre in fondo aveva anche ragione a dir che la pensione è davvero importante
+Mia madre non aveva poi sbagliato a dir che un laureato conta più d'un cantante
+Giovane e ingenuo io ho perso la testa, sian stati i libri o il mio provincialismo
+E un cazzo in culo e accuse d'arrivismo, dubbi di qualunquismo, son quello che mi resta   
+%\end{comment}
+
+
+\section{Metodi}
+I tipi di analisi utilizzati sono stati:
+\begin{itemize}
+    \item analisi multitemporale
+    \item analisi multivariata
+    \item analisi della varianza
+\end{itemize}
+
+
+\noindent In numeri:
+\begin{enumerate}
+    \item analisi multitemporale
+    \item analisi multivariata
+    \item analisi della varianza
+\end{enumerate}
+
+\bigskip
+
+
+In questa tesi è stata utilizzata l'equazione di Newton, 
+raccolta nell'equazione \ref{eq:newton}. uso label per fare riferimento alla formula o foto 
+\begin{equation}
+    F = G
+\end{equation}
+
+\begin{equation}
+    F = G \times \frac{\sqrt{m_1 \times \sqrt[3]{m_2}}}{r^2}
+    \label{eq:newton}
+\end{equation}
+
+Come visto nella sezione \ref{seq:intro}, blablabla
+
+\section{Risultati}
+
+Sulla base delle metologie utilizzate abbiamo ottenuto i risultati riportati in Figura \ref{fig:brenta}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{brenta.jpg}
+    \caption{Questo è il brenta}
+    \label{fig:brenta}
+\end{figure}
+
+\noindent Un altro risultato blabla (Figura 2)
+
+\begin{figure}
+    \centering
+    \includegraphics[width=.5\linewidth]{grafico.png}
+    \caption{Grafico in ggplot2}
+    \label{fig:brenta}
+\end{figure}
+
+
+
+\section{Discussione}
+Nei villaggi di frontiera guardano passare i treni
+Le strade deserte di Tozeur
+Da una casa lontana tua madre mi vede
+Si ricorda di me delle mie abitudini
+E per un istante ritorna la voglia di vivere
+A un'altra velocità \citep{Uyen2025}.
+
+Passano ancora lenti i treni per Tozeur
+Nelle chiese abbandonate si preparano rifugi
+E nuove astronavi per viaggi interstellari \citep{Miller2017}
+
+\begin{thebibliography}{999}
+    \bibitem[Uyen et al. (2025)]{Uyen2025}
+    Uyen, B. T., Marchetto, E., Tordoni, E., \& Rocchini, D. (2025). From virtuality-to-reality: testing the effects of occurrence-based temporal settings on species distribution modeling prediction. Community Ecology, 1-12.
+    \bibitem[Miller, H. D. (2017)]{Miller2017}
+    Miller, J. D. (2017). Reproduction in sea turtles. The Biology of Sea Turtles, Volume I, 51-81.
+\end{thebibliography}
+
+
+\end{document}
