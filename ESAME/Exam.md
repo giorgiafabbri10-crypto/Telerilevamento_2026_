@@ -2,33 +2,60 @@
 
 **Candidato:** Giorgia Fabbri  
 **Corso:** Telerilevamento Geo-Ecologico  
+**Docente:** Prof. Duccio Rocchini
 **Anno Accademico:** 2025/2026
 
 ---
 
-## 1. Introduzione e Area di Studio
-
-L'11 marzo 2011 un terremoto sottomarino di magnitudo 9.0 ha colpito la costa nord-orientale del Giappone (regione del Tōhoku), innescando un violento tsunami. La città costiera di **Ishinomaki** (Prefettura di Miyagi), attraversata dalla foce del fiume Kitakami, è stata una delle aree più devastate dall'inondazione marina.
-
-L'obiettivo di questo progetto è monitorare e quantificare le variazioni della copertura del suolo e lo stato della vegetazione pre e post-evento tramite tecniche di telerilevamento multispettrale.
-
-### Dati Satellitari Utilizzati
-I dati sono stati acquisiti dal sensore **Thematic Mapper (TM)** a bordo del satellite **Landsat 5** (risoluzione spaziale a terra di 30 metri per le bande ottiche):
-* **Immagine Pre-evento:** 24 Agosto 2010 (Path: 107, Row: 033)
-* **Immagine Post-evento:** 5 Aprile 2011 (Path: 107, Row: 033)
+## 📌 Indice dei Contenuti
+1. [Introduzione](#1-introduzione)
+2. [Area di Studio e Dati Satellitari](#2-area-di-studio-e-dati-satellitari)
+3. [Configurazione dell'Ambiente di Lavoro](#3-configurazione-dellambiente-di-lavoro)
+4. [Caricamento dei Dati e Creazione degli Stack](#4-caricamento-dei-dati-e-creazione-degli-stack)
+5. [Ritaglio Spaziale e Visualizzazione RGB](#5-ritaglio-spaziale-e-visualizzazione-rgb)
+6. [Indici di Vegetazione (NDVI) e Analisi Multitemporale](#6-indici-di-vegetazione-ndvi-e-analisi-multitemporale)
+7. [Classificazione Non Supervisionata (k-means)](#7-classificazione-non-supervisionata-k-means)
+8. [Analisi Statistica e Discussione dei Risultati](#8-analisi-statistica-e-discussione-dei-risultati)
+9. [Conclusioni](#9-conclusioni)
 
 ---
 
-## 2. Configurazione dell'Ambiente di Lavoro
+## 1. Introduzione
+L'11 marzo 2011 un sisma sottomarino di magnitudo 9.0 (Great East Japan Earthquake) ha generato una serie di onde di tsunami di eccezionale violenza lungo la costa orientale dell'isola di Honshu. Tra i centri più duramente colpiti figura la città costiera di **Ishinomaki** (Prefettura di Miyagi), caratterizzata da una vasta piana alluvionale alla foce del fiume Kitakami.
 
-Per l'analisi sono stati utilizzati i pacchetti `terra` (gestione dei dati spaziali raster), `imageRy` (funzioni avanzate di telerilevamento e classificazione), `viridis` (palette cromatiche scientifiche) e `ggplot2` (statistica e visualizzazione dati).
+Lo scopo di questo studio è quantificare i danni ambientali e territoriali causati dall'evento, valutando l'estensione dell'inondazione marina e la conseguente perdita di copertura del suolo mediante tecniche di telerilevamento ottico e multispettrale in ambiente R.
+
+---
+
+## 2. Area di Studio e Dati Satellitari
+Per l'analisi sono state selezionate due scene satellitari prive di copertura nuvolosa acquisite dal sensore **Thematic Mapper (TM)** a bordo della piattaforma **Landsat 5** (risoluzione a terra di 30 m):
+
+* **Pre-evento:** 24 Agosto 2010 (WRS-2: Path 107, Row 033)
+* **Post-evento:** 05 Aprile 2011 (WRS-2: Path 107, Row 033)
+
+Le bande spettrali analizzate comprendono:
+* **Banda 1 (Blu):** 0.45 – 0.52 µm
+* **Banda 2 (Verde):** 0.52 – 0.60 µm
+* **Banda 3 (Rosso):** 0.63 – 0.69 µm
+* **Banda 4 (Vicino Infrarosso - NIR):** 0.76 – 0.90 µm
+
+---
+
+## 3. Configurazione dell'Ambiente di Lavoro
+Per l'elaborazione dei dati sono stati utilizzati i seguenti pacchetti del linguaggio R:
+* `terra`: gestione avanzata e manipolazione di dati raster e vettoriali.
+* `imageRy`: funzioni specializzate per il telerilevamento e il clustering.
+* `viridis`: scale di colore scientifiche percettivamente uniformi.
+* `ggplot2`: visualizzazione statistica e grafica dei risultati.
 
 ```R
+# Caricamento delle librerie
 library(terra)
 library(imageRy)
 library(viridis)
 library(ggplot2)
 
+# Impostazione della directory di lavoro
 setwd("C:/Users/LEONOVO-I3/Desktop/progetto telerilevamento")
 
 # Pre-Tsunami (24/08/2010)
