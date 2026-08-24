@@ -168,7 +168,7 @@ plotRGB(
 ```
 
 <p align="center">
-<img width="800" alt="Composizione Landsat Pre e Post Tsunami" src="img/01_composizione_landsat.png">
+<img width="800" alt="Composizione Landsat Pre e Post Tsunami" src="Area_di_studio.png">
 </p>
 
 > **Commento**
@@ -231,7 +231,7 @@ plotRGB(
 ```
 
 <p align="center">
-<img width="800" alt="Area di studio Ishinomaki" src="img/Area_di_studio.png">
+<img width="800" alt="Area di studio Ishinomaki" src="Classificazione_pre_e_post_tsunami.png">
 </p>
 
 > **Commento**
