@@ -36,39 +36,6 @@ In particolare, il progetto prevede:
 
 ---
 
-# 🧪 Data gathering e metodologia
-
-## Raccolta delle immagini
-
-Le immagini utilizzate sono state acquisite dal sensore **Landsat 5 TM** e fanno riferimento alla stessa area geografica.
-
-### Immagine Pre-Tsunami
-
-**24 agosto 2010**
-
-```text
-LT05_L1TP_107033_20100824_20200823_02_T1
-```
-
-### Immagine Post-Tsunami
-
-**5 aprile 2011**
-
-```text
-LT05_L1TP_107033_20110405_20200823_02_T1
-```
-
-Sono state utilizzate le bande:
-
-| Banda | Nome | Utilizzo |
-|---|---|---|
-| B1 | Blue | Banda del blu |
-| B2 | Green | Banda del verde |
-| B3 | Red | Banda del rosso |
-| B4 | NIR | Infrarosso vicino |
-
----
-
 # 📁 Impostazione della working directory
 
 La working directory corrisponde alla cartella contenente le immagini raster Landsat 5.
@@ -727,12 +694,12 @@ progetto-telerilevamento/
 ├── progetto_finale_tsunami.R
 │
 ├── img/
-│   ├── 01_composizione_landsat.png
-│   ├── 02_area_ishinomaki.png
-│   ├── 03_ndvi.png
-│   ├── 04_differenza_ndvi.png
-│   ├── 05_classificazione.png
-│   └── 06_grafico_copertura.png
+│   ├── 01_Falso_colore.png
+│   ├── 02_Area_di_studio.png
+│   ├── 03_NDVI.png
+│   ├── 04_Differenza_NDVI.png
+│   ├── 05_Classificazione_pre_e_post_tsunami.png
+│   └── 06_Grafico.png
 │
 └── dati/
     └── immagini Landsat 5
@@ -756,9 +723,6 @@ progetto-telerilevamento/
 
 ---
 
-# 🏁 Fine del progetto
-
-**Analisi multitemporale di Ishinomaki – Landsat 5 TM (2010–2011)**
 
 
 
