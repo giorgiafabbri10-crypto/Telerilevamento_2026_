@@ -168,7 +168,7 @@ plotRGB(
 ```
 
 <p align="center">
-<img width="800" alt="Composizione Landsat Pre e Post Tsunami" src="Area_di_studio.png">
+<img width="800" alt="Composizione Landsat Pre e Post Tsunami" src="Falso_colore.png">
 </p>
 
 > **Commento**
@@ -231,7 +231,7 @@ plotRGB(
 ```
 
 <p align="center">
-<img width="800" alt="Area di studio Ishinomaki" src="Classificazione_pre_e_post_tsunami.png">
+<img width="800" alt="Area di studio Ishinomaki" src="Area_di_studio.png">
 </p>
 
 > **Commento**
@@ -298,7 +298,7 @@ plot(
 ```
 
 <p align="center">
-<img width="800" alt="NDVI Ishinomaki 2010 e 2011" src="img/03_ndvi.png">
+<img width="800" alt="NDVI Ishinomaki 2010 e 2011" src="NDVI.png">
 </p>
 
 > **Commento**
@@ -366,7 +366,7 @@ plot(
 ```
 
 <p align="center">
-<img width="650" alt="Differenza NDVI Post Pre" src="img/04_differenza_ndvi.png">
+<img width="650" alt="Differenza NDVI Post Pre" src="Differenza_NDVI.png">
 </p>
 
 > **Commento**
@@ -437,7 +437,7 @@ plot(
 ```
 
 <p align="center">
-<img width="800" alt="Classificazione NDVI Ishinomaki" src="img/Classificazione_pre_e_post_tsunami.png">
+<img width="800" alt="Classificazione NDVI Ishinomaki" src="Classificazione_pre_e_post_tsunami.png">
 </p>
 
 > **Commento**
@@ -659,7 +659,7 @@ ggplot(
 ```
 
 <p align="center">
-<img width="900" alt="Grafico finale copertura del suolo Ishinomaki" src="img/06_grafico_copertura.png">
+<img width="900" alt="Grafico finale copertura del suolo Ishinomaki" src="Grafico.png">
 </p>
 
 > **Commento**
