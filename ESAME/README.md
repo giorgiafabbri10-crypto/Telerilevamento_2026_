@@ -263,7 +263,7 @@ plot(
 ```
 
 <p align="center">
-<img width="800" alt="NDVI Ishinomaki 2010 e 2011" src="NDVI.png">
+<img width="800" alt="NDVI Ishinomaki 2010 e 2011" src="NDVI_pre_e_post.png">
 </p>
 
 > **Commento**
@@ -390,13 +390,13 @@ par(mfrow = c(1, 2))
 
 plot(
   class_ndvi_pre,
-  col = c("blue", "grey", "darkgreen"),
+  col = viridis(100),
   main = "Classificazione Pre-Tsunami"
 )
 
 plot(
   class_ndvi_post,
-  col = c("blue", "grey", "darkgreen"),
+  col = viridis(100),
   main = "Classificazione Post-Tsunami"
 )
 ```
