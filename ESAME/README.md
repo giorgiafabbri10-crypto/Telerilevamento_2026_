@@ -245,21 +245,19 @@ ndvi_post <- (
 # 🎨 Visualizzazione dell'NDVI
 
 ```r
-cl_ndvi <- colorRampPalette(
-  c("brown", "yellow", "darkgreen")
-)(100)
+col = viridis(100)
 
 par(mfrow = c(1, 2))
 
 plot(
   ndvi_pre,
-  col = cl_ndvi,
+  col = viridis(100),
   main = "NDVI Pre-Tsunami (2010)"
 )
 
 plot(
   ndvi_post,
-  col = cl_ndvi,
+  col = viridis(100),
   main = "NDVI Post-Tsunami (2011)"
 )
 ```
