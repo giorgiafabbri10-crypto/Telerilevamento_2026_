@@ -245,7 +245,6 @@ ndvi_post <- (
 # 🎨 Visualizzazione dell'NDVI
 
 ```r
-col = viridis(100)
 
 par(mfrow = c(1, 2))
 
