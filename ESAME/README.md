@@ -53,8 +53,7 @@ list.files(pattern = "\\.TIF$", ignore.case = TRUE)
 # 📦 Caricamento dei pacchetti
 
 ```r
-library(terra)        # Per lavorare con raster e immagini satellitari
-library(imageRy)      
+library(terra)        # Per lavorare con raster e immagini satellitari     
 library(viridis)      # Palette di colori 
 library(ggplot2)      # Pacchetto per la creazione di grafici 
 ```
@@ -73,9 +72,9 @@ pre_b2 <- rast("LT05_L1TP_107033_20100824_20200823_02_T1_B2.TIF")
 pre_b3 <- rast("LT05_L1TP_107033_20100824_20200823_02_T1_B3.TIF")
 pre_b4 <- rast("LT05_L1TP_107033_20100824_20200823_02_T1_B4.TIF")
 
-pre_stack <- c(pre_b1, pre_b2, pre_b3, pre_b4)                       # Ho sovrapposto tutte le bande spettrali 
+pre_stack <- c(pre_b1, pre_b2, pre_b3, pre_b4) # Combino le bande in un unico SpatRaster multibanda 
 
-names(pre_stack) <- c("blue", "green", "red", "nir")                 # Ho dato un nome a ogni banda 
+names(pre_stack) <- c("blue", "green", "red", "nir") # Assegno un nome descrittivo a ciascuna banda 
 ```
 
 ## Post-Tsunami – 05/04/2011
@@ -86,9 +85,9 @@ post_b2 <- rast("LT05_L1TP_107033_20110405_20200823_02_T1_B2.TIF")
 post_b3 <- rast("LT05_L1TP_107033_20110405_20200823_02_T1_B3.TIF")
 post_b4 <- rast("LT05_L1TP_107033_20110405_20200823_02_T1_B4.TIF")
 
-post_stack <- c(post_b1, post_b2, post_b3, post_b4)                  # Ho sovrapposto tutte le bande spettrali
+post_stack <- c(post_b1, post_b2, post_b3, post_b4) # Combino le bande in un unico SpatRaster multibanda
 
-names(post_stack) <- c("blue", "green", "red", "nir")                # Ho dato un nome a ogni banda 
+names(post_stack) <- c("blue", "green", "red", "nir") # Assegno un nome descrittivo a ciascuna banda 
 ```
 
 ---
@@ -96,8 +95,8 @@ names(post_stack) <- c("blue", "green", "red", "nir")                # Ho dato u
 # 🌐 Controllo del sistema di riferimento
 
 ```r
-crs(pre_stack)    # Ho controllato il sistema di riferimento delle coordinate Pre_Tsunami
-crs(post_stack)   # Ho controllato il sistema di riferimento delle coordinate Post_Tsunami
+crs(pre_stack) # Controllo il sistema di riferimento del raster Pre_Tsunami
+crs(post_stack) # Controllo il sistema di riferimento del raster Post_Tsunami
 ```
 
 Le immagini vengono controllate per verificare il sistema di riferimento spaziale prima delle elaborazioni successive.
@@ -115,23 +114,23 @@ Per il primo confronto viene utilizzata una composizione a falsi colori **4-3-2*
 ```r
 par(mfrow = c(1, 2))
 
-plotRGB(  # Creazione composizione RGB Pre_Tsunami
+plotRGB( 
   pre_stack,
   r = 4,
   g = 3,
   b = 2,
   stretch = "lin",
   main = "Pre-Tsunami (24/08/2010)"
-)
+) # Visualizzo la composizione a falsi colori Pre_Tsunami
 
-plotRGB(  # Creazione composizione RGB Post_Tsunami
+plotRGB( 
   post_stack,
   r = 4,
   g = 3,
   b = 2,
   stretch = "lin",
   main = "Post-Tsunami (05/04/2011)"
-)
+) # Visualizzo la composizione a falsi colori Post_Tsunami
 ```
 
 <p align="center">
@@ -149,12 +148,12 @@ plotRGB(  # Creazione composizione RGB Post_Tsunami
 L'area di studio viene definita attraverso un'estensione spaziale riferita all'area di Ishinomaki.
 
 ```r
-ext_ishi <- ext(  # Definizione del rettangolo che delimita spazialmente un'area
+ext_ishi <- ext(  
   515000,
   545000,
   4240000,
   4270000
-)
+) # Definisco l'estensione spaziale dell'area di studio 
 
 pre_crop <- crop(pre_stack, ext_ishi)
 
@@ -164,11 +163,11 @@ post_crop <- crop(post_stack, ext_ishi)
 Per verificare il risultato del crop:
 
 ```r
-ext(pre_crop)    # Verifico che il taglio sia stato eseguito correttamente 
+ext(pre_crop) # Controllo l'estensione spaziale del raster ritagliato 
 
-dim(pre_crop)    # Restituzione delle dimensioni di un oggetto 
+dim(pre_crop) # Controllo le dimensioni del raster ritagliato
 
-ncell(pre_crop)  # Capisco quante celle raster contiene il rettangolo tagliato
+ncell(pre_crop) # Conto il numero di celle del raster ritagliato 
 ```
 
 ---
@@ -227,17 +226,17 @@ Valori elevati di NDVI sono generalmente associati alla presenza di vegetazione,
 ## Calcolo dell'NDVI
 
 ```r
-ndvi_pre <- (
+ndvi_pre <- (  
   pre_crop$nir - pre_crop$red
 ) / (
   pre_crop$nir + pre_crop$red
-)
+) # Calcolo NDVI Pre_Tsunami
 
 ndvi_post <- (
   post_crop$nir - post_crop$red
 ) / (
   post_crop$nir + post_crop$red
-)
+) # Calcolo NDVI Post_Tsunami
 ```
 
 ---
@@ -280,17 +279,17 @@ ndvi_stats_pre <- global(
   ndvi_pre,
   c("min", "max", "mean"),
   na.rm = TRUE
-)
+) # Statistiche NDVI Pre_Tsunami
 
 ndvi_stats_post <- global(
   ndvi_post,
   c("min", "max", "mean"),
   na.rm = TRUE
-)
+) # Statistiche NDVI Post_Tsunami
 
-print(ndvi_stats_pre)
+print(ndvi_stats_pre)  # Visualizza risultati Pre_Tsunami
 
-print(ndvi_stats_post)
+print(ndvi_stats_post)  # Visualizza risultati Post_Tsnunami
 ```
 
 Queste statistiche permettono di effettuare un confronto quantitativo generale tra i due periodi.
@@ -306,27 +305,27 @@ $$
 $$
 
 ```r
-dndvi <- ndvi_post - ndvi_pre
+dndvi <- ndvi_post - ndvi_pre # Calcolo la differenza NDVI tra post e pre
 
 dndvi_stats <- global(
   dndvi,
   c("min", "max", "mean"),
   na.rm = TRUE
-)
+) # Calcolo minimo, massimo e media della differenza NDVI
 
-print(dndvi_stats)
+print(dndvi_stats) # Visualizza le statistiche della differenza NDVI 
 ```
 
 La differenza viene visualizzata attraverso una mappa:
 
 ```r
-par(mfrow = c(1, 1))
+par(mfrow = c(1, 1)) # Imposta una singola area di visualizzazione
 
 plot(
   dndvi,
   col = viridis(100),
   main = "Differenza NDVI (Post - Pre)"
-)
+) # Visualizza la mappa della differenza NDVI
 ```
 
 <p align="center">
@@ -360,21 +359,21 @@ rcl_ndvi <- matrix(
   ),
   ncol = 3,
   byrow = TRUE
-)
+) # Definisco la matrice di riclassificazione: intervalli NDVI e classi associate
 
 class_ndvi_pre <- classify(
   ndvi_pre,
   rcl = rcl_ndvi
-)
+) # Riclassifica l'NDVI Pre_Tsunami nelle tre classi 
 
 class_ndvi_post <- classify(
   ndvi_post,
   rcl = rcl_ndvi
-)
+) # Riclassifica l'NDVI Post_Tsunami nelle tre classi 
 
-names(class_ndvi_pre) <- "Classe"
+names(class_ndvi_pre) <- "Classe" # Assegna il nome alla banda classificata Pre_Tsunami
 
-names(class_ndvi_post) <- "Classe"
+names(class_ndvi_post) <- "Classe" # Assegna il nome alla banda classificata Post_Tsunami
 ```
 
 > [!NOTE]
@@ -385,19 +384,19 @@ names(class_ndvi_post) <- "Classe"
 # 🗺️ Visualizzazione della classificazione
 
 ```r
-par(mfrow = c(1, 2))
+par(mfrow = c(1, 2)) # Imposta due pannelli per il confronto pre e post tsunami
 
 plot(
   class_ndvi_pre,
   col = viridis(100),
   main = "Classificazione Pre-Tsunami"
-)
+) # Visualizza la classificazione NDVI Pre_Tsunami
 
 plot(
   class_ndvi_post,
   col = viridis(100),
   main = "Classificazione Post-Tsunami"
-)
+) # Visualizza la classificazione NDVI Post_Tsunami
 ```
 
 <p align="center">
@@ -413,13 +412,13 @@ plot(
 # 🔢 Calcolo delle frequenze
 
 ```r
-freq_ndvi_pre <- freq(class_ndvi_pre)
+freq_ndvi_pre <- freq(class_ndvi_pre) # Conta i pixel appartenenti a ciascuna classe Pre_Tsunami
 
-freq_ndvi_post <- freq(class_ndvi_post)
+freq_ndvi_post <- freq(class_ndvi_post) # Conta i pixel appartenenti a ciascuna classe Post_Tsunami
 
-print(freq_ndvi_pre)
+print(freq_ndvi_pre) # Visualizza le frequenze Pre_Tsunami
 
-print(freq_ndvi_post)
+print(freq_ndvi_post) # Visualizza le frequenze Post_Tsunami
 ```
 
 Le frequenze rappresentano il numero di pixel appartenenti a ciascuna classe.
