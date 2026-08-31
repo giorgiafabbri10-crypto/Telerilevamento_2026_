@@ -68,14 +68,14 @@ Il pacchetto `terra` viene utilizzato per la gestione e l'analisi dei dati raste
 ## Pre-Tsunami – 24/08/2010
 
 ```r
-pre_b1 <- rast("LT05_L1TP_107033_20100824_20200823_02_T1_B1.TIF")
+pre_b1 <- rast("LT05_L1TP_107033_20100824_20200823_02_T1_B1.TIF")    
 pre_b2 <- rast("LT05_L1TP_107033_20100824_20200823_02_T1_B2.TIF")
 pre_b3 <- rast("LT05_L1TP_107033_20100824_20200823_02_T1_B3.TIF")
 pre_b4 <- rast("LT05_L1TP_107033_20100824_20200823_02_T1_B4.TIF")
 
-pre_stack <- c(pre_b1, pre_b2, pre_b3, pre_b4)
+pre_stack <- c(pre_b1, pre_b2, pre_b3, pre_b4)                       # Ho sovrapposto tutte le bande spettrali 
 
-names(pre_stack) <- c("blue", "green", "red", "nir")
+names(pre_stack) <- c("blue", "green", "red", "nir")                 # Ho dato un nome a ogni banda 
 ```
 
 ## Post-Tsunami – 05/04/2011
@@ -86,9 +86,9 @@ post_b2 <- rast("LT05_L1TP_107033_20110405_20200823_02_T1_B2.TIF")
 post_b3 <- rast("LT05_L1TP_107033_20110405_20200823_02_T1_B3.TIF")
 post_b4 <- rast("LT05_L1TP_107033_20110405_20200823_02_T1_B4.TIF")
 
-post_stack <- c(post_b1, post_b2, post_b3, post_b4)
+post_stack <- c(post_b1, post_b2, post_b3, post_b4)                  # Ho sovrapposto tutte le bande spettrali
 
-names(post_stack) <- c("blue", "green", "red", "nir")
+names(post_stack) <- c("blue", "green", "red", "nir")                # Ho dato un nome a ogni banda 
 ```
 
 ---
@@ -96,8 +96,8 @@ names(post_stack) <- c("blue", "green", "red", "nir")
 # 🌐 Controllo del sistema di riferimento
 
 ```r
-crs(pre_stack)
-crs(post_stack)
+crs(pre_stack)    # Ho controllato il sistema di riferimento delle coordinate Pre_Tsunami
+crs(post_stack)   # Ho controllato il sistema di riferimento delle coordinate Post_Tsunami
 ```
 
 Le immagini vengono controllate per verificare il sistema di riferimento spaziale prima delle elaborazioni successive.
@@ -115,7 +115,7 @@ Per il primo confronto viene utilizzata una composizione a falsi colori **4-3-2*
 ```r
 par(mfrow = c(1, 2))
 
-plotRGB(
+plotRGB(  # Creazione composizione RGB Pre_Tsunami
   pre_stack,
   r = 4,
   g = 3,
@@ -124,7 +124,7 @@ plotRGB(
   main = "Pre-Tsunami (24/08/2010)"
 )
 
-plotRGB(
+plotRGB(  # Creazione composizione RGB Post_Tsunami
   post_stack,
   r = 4,
   g = 3,
@@ -149,7 +149,7 @@ plotRGB(
 L'area di studio viene definita attraverso un'estensione spaziale riferita all'area di Ishinomaki.
 
 ```r
-ext_ishi <- ext(
+ext_ishi <- ext(  # Definizione del rettangolo che delimita spazialmente un'area
   515000,
   545000,
   4240000,
@@ -164,11 +164,11 @@ post_crop <- crop(post_stack, ext_ishi)
 Per verificare il risultato del crop:
 
 ```r
-ext(pre_crop)
+ext(pre_crop)    # Verifico che il taglio sia stato eseguito correttamente 
 
-dim(pre_crop)
+dim(pre_crop)    # Restituzione delle dimensioni di un oggetto 
 
-ncell(pre_crop)
+ncell(pre_crop)  # Capisco quante celle raster contiene il rettangolo tagliato
 ```
 
 ---
