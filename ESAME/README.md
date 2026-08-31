@@ -53,10 +53,10 @@ list.files(pattern = "\\.TIF$", ignore.case = TRUE)
 # 📦 Caricamento dei pacchetti
 
 ```r
-library(terra)
-library(imageRy)
-library(viridis)
-library(ggplot2)
+library(terra)        # Per lavorare con raster e immagini satellitari
+library(imageRy)      
+library(viridis)      # Palette di colori 
+library(ggplot2)      # Pacchetto per la creazione di grafici 
 ```
 
 Il pacchetto `terra` viene utilizzato per la gestione e l'analisi dei dati raster, mentre `imageRy` fornisce funzioni dedicate al telerilevamento. `viridis` viene utilizzato per le palette cromatiche e `ggplot2` per la realizzazione del grafico finale.
