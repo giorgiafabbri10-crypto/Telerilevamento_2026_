@@ -41,7 +41,7 @@ In particolare, il progetto prevede:
 La working directory corrisponde alla cartella contenente le immagini raster Landsat 5.
 
 ```r
-setwd("C:/Users/LEONOVO-I3/Desktop/progetto telerilevamento")
+setwd("C:/Users/LEONOVO-I3/Documenti/progetto telerilevamento")
 
 getwd()
 
