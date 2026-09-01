@@ -15,7 +15,7 @@ Sono state utilizzate:
 L'analisi si concentra in particolare sulla variazione della vegetazione e sulla distribuzione delle principali categorie di copertura del suolo.
 
 > [!IMPORTANT]
-> Il confronto tra agosto 2010 e aprile 2011 deve essere interpretato tenendo conto anche della **differenza stagionale** tra le due acquisizioni. Le variazioni osservate non possono quindi essere attribuite esclusivamente allo tsunami.
+> Il confronto tra agosto 2010 e aprile 2011 è stato interpretato tenendo conto anche della **differenza stagionale** tra le due acquisizioni. Le variazioni osservate non possono quindi essere attribuite esclusivamente allo tsunami.
 
 ---
 
@@ -58,7 +58,7 @@ library(viridis)      # Palette di colori
 library(ggplot2)      # Pacchetto per la creazione di grafici 
 ```
 
-Il pacchetto `terra` viene utilizzato per la gestione e l'analisi dei dati raster, mentre `imageRy` fornisce funzioni dedicate al telerilevamento. `viridis` viene utilizzato per le palette cromatiche e `ggplot2` per la realizzazione del grafico finale.
+Il pacchetto `terra` viene utilizzato per la gestione e l'analisi dei dati raster; `viridis` viene utilizzato per le palette cromatiche e `ggplot2` per la realizzazione del grafico finale.
 
 ---
 
