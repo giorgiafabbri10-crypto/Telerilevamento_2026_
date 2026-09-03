@@ -590,8 +590,8 @@ ggplot(
 
   scale_fill_manual(
     values = c(
-      "Pre-Tsunami (2010)" = "#purple",
-      "Post-Tsunami (2011)" = "#yellow"
+      "Pre-Tsunami (2010)" = "purple",
+      "Post-Tsunami (2011)" = "yellow"
     )
   ) +
 
