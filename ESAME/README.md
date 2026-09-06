@@ -646,7 +646,7 @@ In particolare, il confronto mostra:
 
 # 📌 Commenti e conclusioni
 
-L'analisi delle immagini Landsat 5 TM ha permesso di evidenziare alcune variazioni della copertura del territorio di Ishinomaki tra il 2010 e il 2011.
+Con l'analisi delle immagini Landsat 5 TM ho potuto evidenziare alcune variazioni della copertura del territorio di Ishinomaki tra il 2010 e il 2011.
 
 L'NDVI ha fornito un'indicazione della distribuzione della vegetazione, mentre la differenza tra i due raster NDVI ha permesso di evidenziare le variazioni spaziali dell'indice.
 
@@ -675,34 +675,6 @@ Nel presente progetto, l'utilizzo delle immagini Landsat 5 TM ha permesso di:
 - rappresentare graficamente il confronto multitemporale.
 
 L'analisi mostra quindi come gli indici spettrali possano essere utilizzati come strumenti di supporto per lo studio delle modificazioni ambientali e territoriali.
-
----
-
-# 📂 Struttura del progetto
-
-Per mantenere ordinato il repository GitHub, si consiglia di organizzare i file nel seguente modo:
-
-```text
-progetto-telerilevamento/
-│
-├── README.md
-│
-├── progetto_finale_tsunami.R
-│
-├── img/
-│   ├── 01_Falso_colore.png
-│   ├── 02_Area_di_studio.png
-│   ├── 03_NDVI.png
-│   ├── 04_Differenza_NDVI.png
-│   ├── 05_Classificazione_pre_e_post_tsunami.png
-│   └── 06_Grafico.png
-│
-└── dati/
-    └── immagini Landsat 5
-```
-
-> [!NOTE]
-> Le immagini richiamate nel README devono essere presenti nella cartella `img/` del repository. I nomi dei file devono corrispondere esattamente ai nomi utilizzati nei collegamenti Markdown.
 
 ---
 
